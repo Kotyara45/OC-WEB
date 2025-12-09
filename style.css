@@ -1,141 +1,159 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f2f5; 
-    color: #1c1e21;
-    line-height: 1.6;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+    background: url('https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    user-select: none;
 }
-.header {
-    background-color: #0078d4; 
-    color: white;
-    padding: 40px 20px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-.header h1 {
-    margin: 0;
-    font-weight: 700;
-}
-.container {
-    max-width: 1000px;
-    margin: 30px auto;
-    padding: 0 20px;
-}
-.section-card {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    padding: 20px;
+
+.desktop-icon {
+    width: 80px;
+    height: 90px;
+    margin: 10px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    transition: background 0.2s;
 }
-.browser-section {
-    cursor: default !important;
+
+.desktop-icon:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
-.browser-section:hover {
-    transform: none;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+.icon-img {
+    font-size: 40px;
+    margin-bottom: 5px;
 }
-.section-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+.icon-text {
+    font-size: 12px;
+    text-align: center;
 }
-.section-header {
+
+.window {
+    position: absolute;
+    width: 400px;
+    height: 300px;
+    background-color: #f0f2f5;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    display: none;
+    flex-direction: column;
+    resize: both;
+    overflow: auto;
+}
+
+.title-bar {
+    height: 35px;
+    background-color: #e3e3e3;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 1.5em;
-    font-weight: 600;
-    color: #005a9e;
-}
-.section-header span {
-    font-size: 1.2em;
-    margin-right: 10px;
-}
-.content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease-out;
-    padding-top: 0;
-}
-.section-card.active .content {
-    max-height: 2000px; 
-    padding-top: 15px;
-}
-.component-list {
-    list-style: none;
-    padding: 0;
-    margin-top: 10px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 15px;
-}
-.component-list li {
-    background-color: #e5f1fb;
-    border-left: 5px solid #0078d4;
-    padding: 10px 15px;
-    border-radius: 4px;
-}
-.component-list li strong {
-    display: block;
-    color: #005a9e;
-    margin-bottom: 3px;
-}
-.arrow {
-    transition: transform 0.3s;
-}
-.section-card.active .arrow {
-    transform: rotate(90deg);
+    padding: 0 10px;
+    cursor: default;
+    border-bottom: 1px solid #d1d1d1;
 }
 
-#browser-simulator {
-    background-color: #f6f6f6;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    overflow: hidden;
-    margin-top: 30px;
+.title-text {
+    font-weight: 600;
+    font-size: 14px;
 }
-.browser-bar {
-    background-color: #e8e8e8;
-    padding: 8px 10px;
+
+.window-controls button {
+    width: 30px;
+    height: 25px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.window-controls button:hover {
+    background-color: #ccc;
+}
+
+.window-controls button.close-btn:hover {
+    background-color: #e81123;
+    color: white;
+}
+
+.window-content {
+    flex-grow: 1;
+    padding: 10px;
+    background-color: white;
+    overflow: auto;
+    position: relative;
+}
+
+.file-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 10px;
+}
+
+.file-item {
+    text-align: center;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+#taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 45px;
+    background-color: rgba(243, 243, 243, 0.95);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid #ddd;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #ddd;
+    padding: 0 10px;
+    z-index: 9999;
 }
-.browser-bar button {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    padding: 4px 8px;
-    margin-right: 5px;
+
+#start-button {
+    background-color: transparent;
+    border: none;
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: bold;
     cursor: pointer;
     border-radius: 4px;
-    font-size: 0.9em;
 }
-.browser-bar input[type="text"] {
+
+#start-button:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+
+#task-list {
     flex-grow: 1;
-    padding: 6px 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin: 0 10px;
-    font-size: 0.9em;
-}
-#browser-content {
-    height: 300px;
-    background-color: white;
-    padding: 20px;
-    text-align: center;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.1em;
-    color: #555;
-    transition: background-color 0.5s;
+    margin-left: 10px;
 }
-.search-placeholder {
-    margin-top: 15px;
-    font-style: italic;
-    color: #888;
+
+#clock {
+    margin-right: 20px;
+    font-size: 14px;
+}
+
+.blink {
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% { opacity: 0; }
 }
