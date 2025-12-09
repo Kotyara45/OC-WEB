@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="uk">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,54 +59,4 @@
             </div>
         </div>
         <div class="window-content" style="padding: 0; display: flex; flex-direction: column; height: 100%;">
-            <div class="browser-toolbar" style="padding: 5px; background: #f0f0f0; border-bottom: 1px solid #ccc;">
-                <input type="text" value="https://google.com" style="width: 80%; padding: 3px;">
-                <button>Go</button>
-            </div>
-            <iframe src="https://www.wikipedia.org" style="flex-grow: 1; border: none;"></iframe>
-        </div>
-    </div>
-
-    <div id="window-notepad" class="window" style="top: 20%; left: 30%;">
-        <div class="title-bar">
-            <div class="title-text">📝 Нотатки</div>
-            <div class="window-controls">
-                <button onclick="minimizeWindow('window-notepad')">_</button>
-                <button class="close-btn" onclick="closeWindow('window-notepad')">✕</button>
-            </div>
-        </div>
-        <div class="window-content" style="padding: 0;">
-            <textarea style="width: 100%; height: 100%; border: none; padding: 10px; resize: none; font-family: monospace;">Привіт! Це текстовий редактор.</textarea>
-        </div>
-    </div>
-    
-    <div id="window-terminal" class="window" style="top: 25%; left: 40%; background-color: black; color: lime;">
-        <div class="title-bar" style="background-color: #333;">
-            <div class="title-text" style="color: white;">📟 Термінал</div>
-            <div class="window-controls">
-                <button onclick="minimizeWindow('window-terminal')">_</button>
-                <button class="close-btn" onclick="closeWindow('window-terminal')">✕</button>
-            </div>
-        </div>
-        <div class="window-content" style="font-family: monospace; background-color: black;">
-            <p>Microsoft Windows [Version 10.0.19045]</p>
-            <p>(c) Microsoft Corporation. All rights reserved.</p>
-            <br>
-            <p>C:\Users\Admin> node server.js</p>
-            <p>Server started at port 3000...</p>
-            <p class="blink">_</p>
-        </div>
-    </div>
-
-    <div id="taskbar">
-        <button id="start-button">
-            <span style="font-size: 1.2em;">🪟</span> Пуск
-        </button>
-        <div id="task-list">
-            </div>
-        <div id="clock">12:00</div>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
+            <div
