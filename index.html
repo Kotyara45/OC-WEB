@@ -1,110 +1,113 @@
-<html>
+<!DOCTYPE html>
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OS-WEB: Огляд Компонентів Системи</title>
-    <link rel="stylesheet" href="styles.css"> 
-    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>AI OS-WEB</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="header">
-        <h1>OS-WEB: Детальний Огляд Системних Компонентів</h1>
-        <p>Аналіз архітектури та функцій ядра</p>
+    <div id="desktop">
+        
+        <div class="desktop-icon" ondblclick="openWindow('window-computer')">
+            <div class="icon-img">💻</div>
+            <div class="icon-text">Мій Комп'ютер</div>
+        </div>
+
+        <div class="desktop-icon" ondblclick="openWindow('window-browser')">
+            <div class="icon-img">🌐</div>
+            <div class="icon-text">AI Browser</div>
+        </div>
+
+        <div class="desktop-icon" ondblclick="openWindow('window-notepad')">
+            <div class="icon-img">📝</div>
+            <div class="icon-text">Нотатки</div>
+        </div>
+
+        <div class="desktop-icon" ondblclick="openWindow('window-terminal')">
+            <div class="icon-img">📟</div>
+            <div class="icon-text">Термінал</div>
+        </div>
+
     </div>
 
-    <div class="container">
-
-        <div class="section-card browser-section">
-            <div class="section-header">
-                <p><span>🌐</span> Симулятор Вбудованого Браузера</p>
-            </div>
-            <div id="browser-simulator">
-                <div class="browser-bar">
-                    <button onclick="navigate('back')">◀</button>
-                    <button onclick="navigate('forward')">▶</button>
-                    <input type="text" id="url-bar" value="https://www.google.com/" placeholder="Введіть адресу або пошуковий запит">
-                    <button onclick="loadContent()">Go</button>
-                </div>
-                <div id="browser-content">
-                    <h3>Ласкаво просимо до OS-WEB Браузера!</h3>
-                    <p>З міркувань безпеки, ми не можемо відображати тут Google або інші сторонні сайти. </p>
-                    <p>Натисніть **"Go"** для імітації завантаження або спробуйте "https://osweb-success.com".</p>
-                    <p class="search-placeholder" id="current-placeholder">Поточна адреса: https://www.google.com/</p>
-                </div>
+    <div id="window-computer" class="window" style="top: 10%; left: 10%;">
+        <div class="title-bar">
+            <div class="title-text">💻 Мій Комп'ютер</div>
+            <div class="window-controls">
+                <button onclick="minimizeWindow('window-computer')">_</button>
+                <button class="close-btn" onclick="closeWindow('window-computer')">✕</button>
             </div>
         </div>
-        
-        <div class="section-card" onclick="toggleContent(this)">
-            <div class="section-header">
-                <p><span>🖼️</span> Інтерфейс користувача та робоче середовище</p>
-                <span class="arrow">▶</span>
+        <div class="window-content">
+            <div class="file-grid">
+                <div class="file-item">📁 Диск C:</div>
+                <div class="file-item">📁 Google Drive</div>
+                <div class="file-item">📄 document.txt</div>
             </div>
-            <div class="content">
-                <p>Це візуальні елементи, з якими ви взаємодієте щодня.</p>
-                <ul class="component-list">
-                    <li><strong>Робочий стіл (Desktop)</strong>: Базовий шар, на якому розташовані іконки та шпалери.</li>
-                    <li><strong>Панель завдань (Taskbar)</strong>: Містить кнопку «Пуск», системний трей та перемикач відкритих вікон.</li>
-                    <li><strong>Провідник файлів (File Explorer)</strong>: Головний інструмент для навігації файловою системою (NTFS).</li>
-                    <li><strong>Центр сповіщень (Action Center)</strong>: Зберігає історію сповіщень та швидкі плитки налаштувань.</li>
-                </ul>
+            <p style="margin-top: 20px; font-size: 0.9em; color: gray;">3 елементи | Вільно: 50 ГБ</p>
+        </div>
+    </div>
+
+    <div id="window-browser" class="window" style="top: 15%; left: 15%; width: 600px; height: 400px;">
+        <div class="title-bar">
+            <div class="title-text">🌐 AI Browser</div>
+            <div class="window-controls">
+                <button onclick="minimizeWindow('window-browser')">_</button>
+                <button class="close-btn" onclick="closeWindow('window-browser')">✕</button>
             </div>
         </div>
-
-        <div class="section-card" onclick="toggleContent(this)">
-            <div class="section-header">
-                <p><span>⚙️</span> Архітектура та Системні функції</p>
-                <span class="arrow">▶</span>
+        <div class="window-content" style="padding: 0; display: flex; flex-direction: column; height: 100%;">
+            <div class="browser-toolbar" style="padding: 5px; background: #f0f0f0; border-bottom: 1px solid #ccc;">
+                <input type="text" value="https://google.com" style="width: 80%; padding: 3px;">
+                <button>Go</button>
             </div>
-            <div class="content">
-                <p>Внутрішні компоненти, які керують апаратним забезпеченням та процесами. 
+            <iframe src="https://www.wikipedia.org" style="flex-grow: 1; border: none;"></iframe>
+        </div>
+    </div>
 
-[Image of Windows NT Kernel Architecture]
-</p>
-                <ul class="component-list">
-                    <li><strong>Ядро (Kernel)</strong>: Гібридне ядро (NT Kernel), що управляє пам'яттю, процесором та вводом/виводом.</li>
-                    <li><strong>Системний реєстр (Registry)</strong>: Ієрархічна база даних для зберігання конфігурації.</li>
-                    <li><strong>Диспетчер завдань (Task Manager)</strong>: Дозволяє керувати процесами (Process), службами (Services) та продуктивністю.</li>
-                    <li><strong>Драйвери пристроїв (Drivers)</strong>: Використовують модель WDM/KMDF/UMDF для взаємодії з апаратурою.</li>
-                </ul>
+    <div id="window-notepad" class="window" style="top: 20%; left: 30%;">
+        <div class="title-bar">
+            <div class="title-text">📝 Нотатки</div>
+            <div class="window-controls">
+                <button onclick="minimizeWindow('window-notepad')">_</button>
+                <button class="close-btn" onclick="closeWindow('window-notepad')">✕</button>
             </div>
         </div>
-
-        <div class="section-card" onclick="toggleContent(this)">
-            <div class="section-header">
-                <p><span>🛠️</span> Вбудовані Утиліти</p>
-                <span class="arrow">▶</span>
-            </div>
-            <div class="content">
-                <p>Програми для діагностики, налаштування та базових завдань.</p>
-                <ul class="component-list">
-                    <li><strong>Налаштування (Settings App)</strong>: Сучасна заміна більшості функцій Панелі керування.</li>
-                    <li><strong>PowerShell / CMD</strong>: Інтерфейси командного рядка для автоматизації та адміністрування.</li>
-                    <li><strong>Диспетчер пристроїв</strong>: Управління встановленим апаратним забезпеченням та оновленням драйверів.</li>
-                    <li><strong>System Restore / Backup</strong>: Утиліти для відновлення стану системи та резервного копіювання даних.</li>
-                </ul>
-            </div>
+        <div class="window-content" style="padding: 0;">
+            <textarea style="width: 100%; height: 100%; border: none; padding: 10px; resize: none; font-family: monospace;">Привіт! Це текстовий редактор.</textarea>
         </div>
-        
-        <div class="section-card" onclick="toggleContent(this)">
-            <div class="section-header">
-                <p><span>🛡️</span> Мережа та Безпека</p>
-                <span class="arrow">▶</span>
-            </div>
-            <div class="content">
-                <p>Захист та зв'язок зі світом.</p>
-                <ul class="component-list">
-                    <li><strong>Microsoft Defender</strong>: Комплексний антивірусний, антишпигунський та захист від програм-вимагачів.</li>
-                    <li><strong>Брандмауер</strong>: Фільтрує мережевий трафік, використовуючи політики Inbound/Outbound.</li>
-                    <li><strong>TCP/IP Stack</strong>: Набір протоколів для роботи в мережі, включаючи IPv4 та IPv6.</li>
-                    <li><strong>Credential Manager</strong>: Безпечне сховище для паролів та облікових даних користувача.</li>
-                </ul>
-            </div>
-        </div>
-
     </div>
     
-    <script src="script.js"></script>
+    <div id="window-terminal" class="window" style="top: 25%; left: 40%; background-color: black; color: lime;">
+        <div class="title-bar" style="background-color: #333;">
+            <div class="title-text" style="color: white;">📟 Термінал</div>
+            <div class="window-controls">
+                <button onclick="minimizeWindow('window-terminal')">_</button>
+                <button class="close-btn" onclick="closeWindow('window-terminal')">✕</button>
+            </div>
+        </div>
+        <div class="window-content" style="font-family: monospace; background-color: black;">
+            <p>Microsoft Windows [Version 10.0.19045]</p>
+            <p>(c) Microsoft Corporation. All rights reserved.</p>
+            <br>
+            <p>C:\Users\Admin> node server.js</p>
+            <p>Server started at port 3000...</p>
+            <p class="blink">_</p>
+        </div>
+    </div>
 
+    <div id="taskbar">
+        <button id="start-button">
+            <span style="font-size: 1.2em;">🪟</span> Пуск
+        </button>
+        <div id="task-list">
+            </div>
+        <div id="clock">12:00</div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
